@@ -17,3 +17,4 @@ function solve() {
 }
 
 solve('cat', 42, function() { console.log('Hello world!'); });
+solve('dog', 42, function() { console.log('Second test'); });
