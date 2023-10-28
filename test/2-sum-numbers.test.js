@@ -25,4 +25,12 @@ describe('Sum of numbers', () => {
 
         expect(actualSum).to.equal(expectedSum);
     });
+
+    it('Should return zero when the array is empty', () => {
+        let numbers = [];
+        let actualSum = sum(numbers);
+        let expectedSum = 0;
+
+        expect(actualSum).to.equal(expectedSum);
+    });
 });
