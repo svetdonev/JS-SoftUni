@@ -8,7 +8,7 @@ function lockedProfile() {
     let thirdBtn = document.getElementsByTagName('button')[2];
     let user3HiddenInfo = document.getElementById('user3HiddenFields');
 
-    firstBtn.addEventListener('click', (e) => {
+    firstBtn.addEventListener('click', () => {
         let selected = document.querySelector('input[name="user1Locked"]:checked');
 
         if(selected.value == 'unlock') {
@@ -24,7 +24,7 @@ function lockedProfile() {
         
     });
 
-    secondBtn.addEventListener('click', (e) => {
+    secondBtn.addEventListener('click', () => {
         let selected = document.querySelector('input[name="user2Locked"]:checked');
 
         if(selected.value == 'unlock') {
@@ -38,7 +38,7 @@ function lockedProfile() {
         }
     });
 
-    thirdBtn.addEventListener('click', (e) => {
+    thirdBtn.addEventListener('click', () => {
         let selected = document.querySelector('input[name="user3Locked"]:checked');
 
         if(selected.value == 'unlock') {
