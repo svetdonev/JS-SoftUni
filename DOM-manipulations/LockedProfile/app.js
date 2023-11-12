@@ -20,8 +20,6 @@ function lockedProfile() {
                 user1HiddenInfo.style.display = 'none';
             }
         }
-
-        
     });
 
     secondBtn.addEventListener('click', () => {
