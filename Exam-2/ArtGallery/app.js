@@ -22,14 +22,33 @@ class ArtGallery {
             }
         }
 
-        if(!isInTheArray) {
-            this.listOfArticles.push({articleModel, articleName, quantity});
+        if (!isInTheArray) {
+            this.listOfArticles.push({ articleModel, articleName, quantity });
         }
         return `Successfully added article ${articleName} with a new quantity- ${quantity}.`;
+    }
+
+    inviteGuest(guestName, personality) {
+        let isExisting = this.guests.some(x => x.guestName === guestName);
+
+        if (isExisting) {
+            return `${guestName} has already been invited.`;
+        }
+
+        let points = 50;
+        if (personality == 'Vip') {
+            points = 500;
+        }
+        if (personality == 'Middle') {
+            points = 250;
+        }
+        this.guests.push({ guestName, personality, points, purchaseArticle: 0 });
+
+        return `You have successfully invited ${guestName}!`;
     }
 }
 
 const artGallery = new ArtGallery('Curtis Mayfield');
-console.log(artGallery.addArticle('picture', 'Mona Liza', 3));
-console.log(artGallery.addArticle('Item', 'Ancient vase', 2));
-console.log(artGallery.addArticle('PICTURE', 'Mona Liza', 1));
+console.log(artGallery.inviteGuest('John', 'Vip'));
+console.log(artGallery.inviteGuest('Peter', 'Middle'));
+console.log(artGallery.inviteGuest('John', 'Middle'));
