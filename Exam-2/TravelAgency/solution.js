@@ -19,12 +19,6 @@ function solution() {
 
   let inputValues = Array.from(document.getElementById('form').querySelectorAll('input'));
   let labelValues = Array.from(document.getElementById('form').querySelectorAll('label'));
-
-  let fullNameBackup = '';
-  let emailBackup = '';
-  let phoneNumberBackup = '';
-  let addressBackup = '';
-  let codeBackup = '';
   
   submitBtn.addEventListener('click', () => {
     if(fullNameElement.value !== '' && emailElement.value !== '') {
@@ -54,13 +48,11 @@ function solution() {
   });
 
   editBtn.addEventListener('click', () => {
-    fullNameElement.value = fullNameBackup;
-    emailElement.value = emailBackup;
-    phoneNumberElement.value = phoneNumberBackup;
-    addressElement.value = addressBackup;
-    codeElement.value = codeBackup;
-
-    ulElement.textContent = '';
+    let listItems = Array.from(ulElement.childNodes);
+    for(let i = 0; i < listItems.length; i++) {
+      inputValues[i].value = listItems[i].textContent.split(': ')[1];
+      listItems[i].remove();
+    }
 
     submitBtn.disabled = false;
     editBtn.disabled = true;
