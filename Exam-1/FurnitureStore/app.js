@@ -7,6 +7,7 @@ function solve() {
     let priceInputElement = document.getElementById('price');
     let table = document.getElementById('furniture-list');
     let addBtn = document.getElementById('add');
+    let totalPrice = document.querySelector('.total-price');
 
     addBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -47,6 +48,14 @@ function solve() {
                 }
             });
 
+            buyBtn.addEventListener('click', (e) => {
+                let currentTotalPrice = Number(totalPrice.textContent);
+                totalPrice.textContent = (currentTotalPrice + price).toFixed(2);
+
+                rowElement.remove();
+                infoRowElement.remove();
+            })
+
             modelTdElement.textContent = model;
             priceTdElement.textContent = price.toFixed(2);
             moreInfoBtn.textContent = 'More Info';
@@ -69,6 +78,5 @@ function solve() {
             table.appendChild(rowElement);
             table.appendChild(infoRowElement);
         }
-
     });
 }
