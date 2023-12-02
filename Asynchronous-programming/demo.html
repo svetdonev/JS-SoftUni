@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" id="login-form">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Write your name.." />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password" />
+        </div>
+        <div>
+            <input type="submit" id="submit-btn" value="Login">
+        </div>
+    </form>
+
+
+    <script>
+        let formElement = document.getElementById('login-form');
+
+        formElement.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let formData = new FormData(e.currentTarget);
+            let { username, password } = Object.fromEntries(formData);
+
+            console.log(username + ' ' + password);
+        })
+    </script>
+</body>
+</html>
